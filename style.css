@@ -1,0 +1,55 @@
+  body {
+    font-family: 'Helvetica';
+    min-height: 100%;
+  }
+  .navcenter {
+    margin: 0 auto;
+  }
+  .navbar{
+    padding-left: 10%;
+    padding-right: 10%;
+  }
+  @media(max-width: 600px){
+    .navcenter {
+      margin: 0;
+    }
+  }
+  .body-below {
+    margin: 0 10%;
+  }
+  .responsive {
+    width: 100%;
+    height: auto;
+  }
+  .card {
+    margin: 0 auto;
+    float: none;
+    margin-bottom: 40px;
+  }
+  .container-fluid {
+    padding: 40px auto;
+  }
+  .text-green{
+    color: #84C971;
+  }
+  .body-below-account {
+    margin: 5% 10% 14% 10%;
+  }
+  #update_form {
+    display: none;
+  }
+  #update_form_pw {
+    display: none;
+  }
+  .text-green{
+    color: #84C971;
+  }
+  .carousel-inner .carousel-item {
+    transition: -webkit-transform 2s ease;
+    transition: transform 2s ease;
+    transition: transform 2s ease, -webkit-transform 2s ease;
+  }
+  .form-signin {
+    margin: 7% 37% 7% 37%;
+    overflow: auto;
+  }
