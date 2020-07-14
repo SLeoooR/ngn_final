@@ -47,7 +47,6 @@
 
     $data = json_decode($result);
 
-    print_r($data);
     if ($data->is_domain == '-' || $data->is_smtp == '-' || $data->is_verified == '-' || $data->is_server_down == '-' || $data->is_greylisted == '-' || 
     $data->is_disposable == '-' || $data->is_suppressed == '-' || $data->is_role == '-' || $data->is_high_risk == '-' || $data->is_catchall == '-'){
       $_SESSION['email_validity']  = "Your email address is not valid!";
@@ -116,9 +115,8 @@
   }
 
   if (isset($_GET['logout'])) {
-    session_destroy();
-    unset($_SESSION['user']);
     $_SESSION['logged_out'] = "Successfully logged out.";
+    header('location: index_ngn.php?logged-out');
   }
 
   if (isset($_POST['delete_button'])) {
@@ -134,13 +132,36 @@
     $username = $_POST['username'];
     $email = $_POST['email'];
 
-    $db->query("UPDATE users SET username='$username', email='$email' WHERE id=$id") or die($db->error);
-    
-    $_SESSION['user']['username'] = $username;
-    $_SESSION['user']['email'] = $email;
+    $apiKey = 'SXFJW1FHHRZ3FHPOLI7X';
+    $params['format'] = 'json';
+    $params['email'] = $email;
 
-    $_SESSION['updated_account'] = "User details has been updated.";
-    header('location: account.php?updated-account');
+    $query = '';
+
+    foreach($params as $key=>$value){
+      $query .= '&' . $key . '=' . rawurlencode($value);
+    }
+
+    $try = 0;
+    do {
+      $result = file_get_contents('https://api.mailboxvalidator.com/v1/validation/single?key=' . $apiKey . $query);
+    } while(!$result && $try++ < 3);
+
+    $data = json_decode($result);
+
+    if ($data->is_domain == '-' || $data->is_smtp == '-' || $data->is_verified == '-' || $data->is_server_down == '-' || $data->is_greylisted == '-' || 
+    $data->is_disposable == '-' || $data->is_suppressed == '-' || $data->is_role == '-' || $data->is_high_risk == '-' || $data->is_catchall == '-'){
+      $_SESSION['email_validity']  = "Your email address is not valid!";
+      header('location: account.php?email-validity');
+    } else {
+      $db->query("UPDATE users SET username='$username', email='$email' WHERE id=$id") or die($db->error);
+      
+      $_SESSION['user']['username'] = $username;
+      $_SESSION['user']['email'] = $email;
+
+      $_SESSION['updated_account'] = "User details has been updated.";
+      header('location: account.php?updated-account');
+    }
   }
 
   if (isset($_POST['update_pw_button'])){

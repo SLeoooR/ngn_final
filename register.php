@@ -35,7 +35,7 @@
         unset($_SESSION['email_validity']);
       } ?>
       <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-        <a class="navbar-brand" href="index_ngn.php"><img src="ngnlogoo.png" width="50" height="50">NGN.NET Enterprises</a>
+        <a class="navbar-brand" href="index_ngn.php"><img src="pics\ngnlogoo.png" width="50" height="50">NGN.NET Enterprises</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -55,18 +55,18 @@
         </div>
       </nav>
 
-      <form class="form-signin" method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>" oninput='inputPassword2.setCustomValidity(inputPassword2.value != inputPassword1.value ? "Passwords do not match." : "")'>
-        <img class="mb-4" src="ngnlogoo.png" alt="" width="72" height="72">
+      <form method="post" class="body-below text-center mt-3 form-signin" action="<?php echo $_SERVER['PHP_SELF']; ?>" oninput='inputPassword2.setCustomValidity(inputPassword2.value != inputPassword1.value ? "Passwords do not match." : "")'>
+        <img class="mb-4" src="pics\ngnlogoo.png" alt="" width="72" height="72">
         <h1 class="h3 mb-3 font-weight-normal">Register</h1>
         <label for="inputEmail" class="sr-only">Username</label>
-        <input type="text" name="inputUsername" class="form-control" placeholder="Username" required> <br>
+        <input type="text" name="inputUsername" class="form-control mb-4" placeholder="Username" required>
         <label for="inputEmail" class="sr-only">Email address</label>
-        <input type="email" name="inputEmail" class="form-control" placeholder="Email address" required autofocus> <br>
+        <input type="email" name="inputEmail" class="form-control mb-4" placeholder="Email address" required autofocus>
         <label for="inputPassword" class="sr-only">Password</label>
-        <input type="password" name="inputPassword1" class="form-control" placeholder="Password" required> <br>
+        <input type="password" name="inputPassword1" class="form-control mb-4" placeholder="Password" required>
         <label for="inputPassword2" class="sr-only">Confirm Password</label>
-        <input type="password" name="inputPassword2" class="form-control" placeholder="Confirm Password" required> <br>
-        <button class="btn btn-lg btn-primary btn-block" type="submit" name="register_button">Sign Up</button> <br>
+        <input type="password" name="inputPassword2" class="form-control mb-4" placeholder="Confirm Password" required>
+        <button class="btn btn-lg btn-primary btn-block mb-4" type="submit" name="register_button">Sign Up</button>
         <p>Already have an account? <a href="login.php" class="text-primary">Login</p></a>
       </form>
 

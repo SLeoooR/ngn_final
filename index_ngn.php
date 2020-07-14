@@ -34,13 +34,16 @@
               unset($_SESSION['logged_in']);
             ?>
         </div>
-      <?php } else if (isset($_SESSION['logged_out'])) { ?>
-        <div style='margin-bottom: 0;' class='alert alert-warning text-center'>
-            <?php 
-              echo $_SESSION['logged_out'];
-              unset($_SESSION['logged_out']);
-            ?>
-        </div>
+      <?php } else if (isset($_GET['logged-out'])) {
+        if (isset($_SESSION['logged_out'])) {
+          echo "<div style='margin-bottom: 0;' class='alert alert-warning text-center'>";
+          echo $_SESSION['logged_out'];
+          echo "</div>";
+          session_destroy();
+          unset($_SESSION['user']);
+        }
+        unset($_SESSION['logged_out']);
+      ?>
       <?php } else if (isset($_GET['deleted-account'])) {
         if (isset($_SESSION['deleted_account'])) {
           echo "<div style='margin-bottom: 0;' class='alert alert-warning text-center'>";
@@ -52,7 +55,7 @@
         unset($_SESSION['deleted_account']);
       } ?>
       <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-        <a class="navbar-brand" href="index_ngn.php"><img src="ngnlogoo.png" width="50" height="50">NGN.NET Enterprises</a>
+        <a class="navbar-brand" href="index_ngn.php"><img src="pics\ngnlogoo.png" width="50" height="50">NGN.NET Enterprises</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -115,13 +118,13 @@
         </ol>
         <div class="carousel-inner">
           <div class="carousel-item active">
-            <img class="d-block w-100" src="carousel1.png" alt="First slide">
+            <img class="d-block w-100" src="pics\carousel1.png" alt="First slide">
           </div>
           <div class="carousel-item">
-            <img class="d-block w-100" src="carousel2.png" alt="Second slide">
+            <img class="d-block w-100" src="pics\carousel2.png" alt="Second slide">
           </div>
           <div class="carousel-item">
-            <img class="d-block w-100" src="carousel3.png" alt="Third slide">
+            <img class="d-block w-100" src="pics\carousel3.png" alt="Third slide">
           </div>
         </div>
         <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
@@ -147,31 +150,31 @@
 
         <div class="card-deck mb-4">
           <div class="card">
-            <img class="card-img-top" src="cctv2.png" alt="Card image cap">
+            <img class="card-img-top" src="pics\cctv2.png" alt="Card image cap">
             <div class="card-body">
               <h5 class="card-title">CCTV / IP Surveillance System</h5>
             </div>
           </div>
           <div class="card">
-            <img class="card-img-top" src="pabx2.png" alt="Card image cap">
+            <img class="card-img-top" src="pics\pabx2.png" alt="Card image cap">
             <div class="card-body">
               <h5 class="card-title">PABX Installation</h5>
             </div>
           </div>
           <div class="card">
-            <img class="card-img-top" src="wireless2.png" alt="Card image cap">
+            <img class="card-img-top" src="pics\wireless2.png" alt="Card image cap">
             <div class="card-body">
               <h5 class="card-title">Wireless Transmissions (Towers)</h5>
             </div>
           </div>
           <div class="card">
-            <img class="card-img-top responsive" src="fibergrounding.png" alt="Card image cap">
+            <img class="card-img-top" src="pics\fibergrounding.png" alt="Card image cap">
             <div class="card-body">
               <h5 class="card-title">Fiber Optics Conduits and Groundings</h5>
             </div>
           </div>
           <div class="card">
-            <img class="card-img-top responsive" src="fiber_two.png" alt="Card image cap">
+            <img class="card-img-top" src="pics\fiber_two.png" alt="Card image cap">
             <div class="card-body">
               <h5 class="card-title">Fiber Optics Splicing and Installation</h5>
             </div>

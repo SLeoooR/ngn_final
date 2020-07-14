@@ -39,7 +39,7 @@
       <?php } ?>
       <div id="navextend">
         <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-          <a class="navbar-brand" href="admin.php"><img src="ngnlogoo.png" width="50" height="50">NGN.NET Enterprises</a>
+          <a class="navbar-brand" href="admin.php"><img src="pics\ngnlogoo.png" width="50" height="50">NGN.NET Enterprises</a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>

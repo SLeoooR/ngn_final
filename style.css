@@ -1,6 +1,5 @@
   body {
     font-family: 'Helvetica';
-    min-height: 100%;
   }
   .navcenter {
     margin: 0 auto;
@@ -16,6 +15,7 @@
   }
   .body-below {
     margin: 0 10%;
+    min-height: 90%;
   }
   .responsive {
     width: 100%;
@@ -49,7 +49,73 @@
     transition: transform 2s ease;
     transition: transform 2s ease, -webkit-transform 2s ease;
   }
+  .ol-popup {
+    position: absolute;
+    background-color: white;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.2);
+    padding: 15px;
+    border-radius: 10px;
+    border: 1px solid #cccccc;
+    bottom: 12px;
+    left: -50px;
+    min-width: 200px;
+  }
+  .ol-popup:after, .ol-popup:before {
+    top: 100%;
+    border: solid transparent;
+    content: " ";
+    height: 0;
+    width: 0;
+    position: absolute;
+    pointer-events: none;
+  }
+  .ol-popup:after {
+    border-top-color: white;
+    border-width: 10px;
+    left: 48px;
+    margin-left: -10px;
+  }
+  .ol-popup:before {
+    border-top-color: #cccccc;
+    border-width: 11px;
+    left: 48px;
+    margin-left: -11px;
+  }
+  .ol-popup-closer {
+    text-decoration: none;
+    position: absolute;
+    top: 2px;
+    right: 8px;
+  }
+  .ol-popup-closer:after {
+    content: "✖";
+  }
   .form-signin {
-    margin: 7% 37% 7% 37%;
-    overflow: auto;
+    width: 100%;
+    max-width: 330px;
+    padding: 15px;
+    margin: 0 auto;
+  }
+  .form-signin .checkbox {
+    font-weight: 400;
+  }
+  .form-signin .form-control {
+    position: relative;
+    box-sizing: border-box;
+    height: auto;
+    padding: 10px;
+    font-size: 16px;
+  }
+  .form-signin .form-control:focus {
+    z-index: 2;
+  }
+  .form-signin input[type="email"] {
+    margin-bottom: -1px;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+  .form-signin input[type="password"] {
+    margin-bottom: 10px;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
   }

@@ -5,7 +5,6 @@
     aware of the policies stipulated in the handbook regarding academic dishonesty. If proven 
     guilty, I won't be credited any points for this endeavor.
 -->
-<!DOCTYPE html>
 <?php 
   include('functions.php'); 
 ?>
@@ -22,53 +21,10 @@
       <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
       <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
       <script src="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v6.3.1/build/ol.js"></script>
-      <style>
-        .ol-popup {
-          position: absolute;
-          background-color: white;
-          box-shadow: 0 1px 4px rgba(0,0,0,0.2);
-          padding: 15px;
-          border-radius: 10px;
-          border: 1px solid #cccccc;
-          bottom: 12px;
-          left: -50px;
-          min-width: 200px;
-        }
-        .ol-popup:after, .ol-popup:before {
-          top: 100%;
-          border: solid transparent;
-          content: " ";
-          height: 0;
-          width: 0;
-          position: absolute;
-          pointer-events: none;
-        }
-        .ol-popup:after {
-          border-top-color: white;
-          border-width: 10px;
-          left: 48px;
-          margin-left: -10px;
-        }
-        .ol-popup:before {
-          border-top-color: #cccccc;
-          border-width: 11px;
-          left: 48px;
-          margin-left: -11px;
-        }
-        .ol-popup-closer {
-          text-decoration: none;
-          position: absolute;
-          top: 2px;
-          right: 8px;
-        }
-        .ol-popup-closer:after {
-          content: "✖";
-        }
-      </style>
     </head>
     <body>
       <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-        <a class="navbar-brand" href="index_ngn.php"><img src="ngnlogoo.png" width="50" height="50">NGN.NET Enterprises</a>
+        <a class="navbar-brand" href="index_ngn.php"><img src="pics\ngnlogoo.png" width="50" height="50">NGN.NET Enterprises</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -92,7 +48,7 @@
                 Signed in as:
                 <span class="text-green"><?php echo $_SESSION['user']['username']; ?></span>
                 <div class="btn-group">
-                  <button class="btn btn-secondary btn-light dropdown-toggle dropdown-toggle-split" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <button class="btn btn-secondary btn-light dropdown-toggle dropdown-toggle-split" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                   </button>
                   <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
                     <a class="dropdown-item" href="inquiries.php">My Inquiries</a>
@@ -130,7 +86,7 @@
         </div>
       </div>
 
-      <div class="body-below text-center">
+      <div class="text-center" style="padding-left: 10%; padding-right: 10%;">
         <div class="jumbotron jumbotron-fluid row mb-0">
           <div class="col-6" style="border-right: 2px solid black;">
             <h1 class="display-5">Address</h1>
@@ -149,7 +105,6 @@
 
       <script src="https://cdn.rawgit.com/openlayers/openlayers.github.io/master/en/v5.3.0/build/ol.js"></script>
       <script>
-
         var map = new ol.Map({
           target: 'map',
           layers: [

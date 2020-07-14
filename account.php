@@ -25,7 +25,15 @@
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
     </head>
     <body>
-      <?php if (isset($_GET['updated-account'])) {
+      <?php if (isset($_GET['email-validity'])) {
+        if (isset($_SESSION['email_validity'])) {
+          echo "<div style='margin-bottom: 0;' class='alert alert-danger text-center'>";
+          echo $_SESSION['email_validity'];
+          echo "</div>";
+        }
+        unset($_SESSION['email_validity']);
+      ?>
+      <?php } else if (isset($_GET['updated-account'])) {
         if (isset($_SESSION['updated_account'])) {
           echo "<div style='margin-bottom: 0;' class='alert alert-warning text-center'>";
           echo $_SESSION['updated_account'];
@@ -50,7 +58,7 @@
         unset($_SESSION['error_password']);
       } ?>
       <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-        <a class="navbar-brand" href="index_ngn.php"><img src="ngnlogoo.png" width="50" height="50">NGN.NET Enterprises</a>
+        <a class="navbar-brand" href="index_ngn.php"><img src="pics\ngnlogoo.png" width="50" height="50">NGN.NET Enterprises</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -105,58 +113,60 @@
         </div>
       </nav>
 
-      <div class="jumbotron jumbotron-fluid text-center">
-        <h1 class="display-4">My Account</h1>
-      </div>
+      <div style="min-height: 90%;">
+        <div class="jumbotron jumbotron-fluid text-center">
+          <h1 class="display-4">My Account</h1>
+        </div>
 
-      <div class="body-below-account">
-        <table class="table text-center">
-            <thead>
+        <div class="body-below-account">
+          <table class="table text-center">
+              <thead>
+                <tr>
+                    <th>Username</th>
+                    <th>Email</th>
+                    <th>Action</th>
+                </tr>
+              </thead>
               <tr>
-                  <th>Username</th>
-                  <th>Email</th>
-                  <th>Action</th>
+                <td width="33.33%"><?php echo $_SESSION['user']['username']; ?></td>
+                <td width="33.33%"><?php echo $_SESSION['user']['email']; ?></td>
+                <td width="33.33%">
+                  <form method="POST">
+                    <button class="btn btn-info" name="edit_button" id="edit_button">Edit</button>
+                    <button class="btn btn-danger" name="delete_button" onclick="return confirm('Are you sure?')">Delete</button>
+                    <button class="btn btn-warning" name="edit_pw_button" id="edit_pw_button">Reset Password</button>
+                  </form>
+                </td>
               </tr>
-            </thead>
-            <tr>
-              <td width="33.33%"><?php echo $_SESSION['user']['username']; ?></td>
-              <td width="33.33%"><?php echo $_SESSION['user']['email']; ?></td>
-              <td width="33.33%">
-                <form method="POST">
-                  <button class="btn btn-info" name="edit_button" id="edit_button">Edit</button>
-                  <button class="btn btn-danger" name="delete_button" onclick="return confirm('Are you sure?')">Delete</button>
-                  <button class="btn btn-warning" name="edit_pw_button" id="edit_pw_button">Reset Password</button>
+              <tr id="update_form">
+                <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST" >
+                  <input type="hidden" name="id" value="<?php echo $_SESSION['user']['id'] ?>" />
+                  <td class="form-group">
+                    <input type="text" name="username" class="form-control" placeholder="Enter your new username" required /></td>
+                  <td class="form-group">
+                    <input type="email" name="email" class="form-control" placeholder="Enter your new email" required /></td>
+                  <td class="form-group">
+                    <button type="submit" class="btn btn-info" name="update_button">Update</button>
+                  </td>
                 </form>
-              </td>
-            </tr>
-            <tr id="update_form">
-              <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST" >
-                <input type="hidden" name="id" value="<?php echo $_SESSION['user']['id'] ?>" />
-                <td class="form-group">
-                  <input type="text" name="username" class="form-control" placeholder="Enter your new username" required /></td>
-                <td class="form-group">
-                  <input type="email" name="email" class="form-control" placeholder="Enter your new email" required /></td>
-                <td class="form-group">
-                  <button type="submit" class="btn btn-info" name="update_button">Update</button>
-                </td>
-              </form>
-            </tr>
-            <tr id="update_form_pw">
-              <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST" oninput='inputPassword2.setCustomValidity(inputPassword2.value != inputPassword1.value ? "Passwords do not match." : "")'>
-                <input type="hidden" name="id" value="<?php echo $_SESSION['user']['id'] ?>" />
-                <td class="form-group">
-                  <input type="password" name="current_password" class="form-control" placeholder="Enter current password" required />
-                </td>
-                <td class="form-group">
-                  <input type="password" name="new_password" class="form-control" placeholder="Enter new password" required />
-                  <input type="password" name="confirm_password" class="form-control" placeholder="Confirm new password" required />
-                </td>
-                <td class="form-group">
-                  <button type="submit" class="btn btn-info" name="update_pw_button">Update</button>
-                </td>
-              </form>
-            </tr>
-        </table>
+              </tr>
+              <tr id="update_form_pw">
+                <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST" oninput='inputPassword2.setCustomValidity(inputPassword2.value != inputPassword1.value ? "Passwords do not match." : "")'>
+                  <input type="hidden" name="id" value="<?php echo $_SESSION['user']['id'] ?>" />
+                  <td class="form-group">
+                    <input type="password" name="current_password" class="form-control" placeholder="Enter current password" required />
+                  </td>
+                  <td class="form-group">
+                    <input type="password" name="new_password" class="form-control" placeholder="Enter new password" required />
+                    <input type="password" name="confirm_password" class="form-control" placeholder="Confirm new password" required />
+                  </td>
+                  <td class="form-group">
+                    <button type="submit" class="btn btn-info" name="update_pw_button">Update</button>
+                  </td>
+                </form>
+              </tr>
+          </table>
+        </div>
       </div>
       
       <footer class="text-light">

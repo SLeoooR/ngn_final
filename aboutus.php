@@ -21,7 +21,7 @@
     </head>
     <body>
       <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-        <a class="navbar-brand" href="index_ngn.php"><img src="ngnlogoo.png" width="50" height="50">NGN.NET Enterprises</a>
+        <a class="navbar-brand" href="index_ngn.php"><img src="pics\ngnlogoo.png" width="50" height="50">NGN.NET Enterprises</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -139,25 +139,25 @@
 
         <div class="card-deck mb-4">
           <div class="card">
-            <img class="card-img-top" src="workethics.jpg" alt="Card image cap">
+            <img class="card-img-top" src="pics\workethics.jpg" alt="Card image cap">
             <div class="card-body">
               <h5 class="card-title">Strong Work Ethics</h5>
             </div>
           </div>
           <div class="card">
-            <img class="card-img-top" src="growth.jpg" alt="Card image cap">
+            <img class="card-img-top" src="pics\growth.jpg" alt="Card image cap">
             <div class="card-body">
               <h5 class="card-title">Passion for Growth</h5>
             </div>
           </div>
           <div class="card">
-            <img class="card-img-top" src="service.jpg" alt="Card image cap">
+            <img class="card-img-top" src="pics\service.jpg" alt="Card image cap">
             <div class="card-body">
               <h5 class="card-title">Relentless Customer Service</h5>
             </div>
           </div>
           <div class="card">
-            <img class="card-img-top" src="teamwork.jpg" alt="Card image cap">
+            <img class="card-img-top" src="pics\teamwork.jpg" alt="Card image cap">
             <div class="card-body">
               <h5 class="card-title">Sense of Teamwork</h5>
             </div>
@@ -167,7 +167,7 @@
         <div class="font-weight-bold text-center">
           <h5 class="card-title font-weight-bold">Projects Undertaken</h5>
         </div>
-        <img src="projects.png" class="mb-4" style="max-width: 100%; max-height: auto;">
+        <img src="pics\projects.png" class="mb-4" style="max-width: 100%; max-height: auto;">
       </div>
 
       <footer class="text-light">

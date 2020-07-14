@@ -25,21 +25,6 @@
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
 
         <style>
-          body {
-            font-family: 'Helvetica';
-          }
-          #navcenter {
-            margin: 0 auto;
-          }
-          .navbar{
-            padding-left: 10%;
-            padding-right: 10%;
-          }
-          @media(max-width: 600px){
-            #navcenter {
-              margin: 0;
-            }
-          }
           #body_below {
             margin: 5% 10% 15% 10%;
           }
@@ -48,13 +33,13 @@
     <body>
       <div id="navextend">
         <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-          <a class="navbar-brand" href="index_ngn.php"><img src="ngnlogoo.png" width="50" height="50">NGN.NET Enterprises</a>
+          <a class="navbar-brand" href="index_ngn.php"><img src="pics\ngnlogoo.png" width="50" height="50">NGN.NET Enterprises</a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
         
           <div class="collapse navbar-collapse nav" id="navbarSupportedContent">
-            <ul class="navbar-nav mr-auto" id="navcenter">
+            <ul class="navbar-nav mr-auto navcenter">
               <li class="nav-item">
                 <a class="nav-link" href="aboutus.php">About Us</a>
               </li>
@@ -95,7 +80,7 @@
         <h1 class="display-4">My Inquiries</h1>
       </div>
 
-      <div id="body_below" class="text-center p-5">
+      <div class="body-below text-center p-5">
         
       </div>
       
