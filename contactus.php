@@ -1,10 +1,3 @@
-<!--
-  Honor Code:
-    This is my own work and I have not received any unauthorized help in completing this. 
-    I have not copied from my classmate, friend, nor any unauthorized resource. I am well 
-    aware of the policies stipulated in the handbook regarding academic dishonesty. If proven 
-    guilty, I won't be credited any points for this endeavor.
--->
 <?php 
   include('functions.php'); 
 ?>
@@ -23,34 +16,33 @@
       <script src="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v6.3.1/build/ol.js"></script>
     </head>
     <body>
-      <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-        <a class="navbar-brand" href="index_ngn.php"><img src="pics\ngnlogoo.png" width="50" height="50">NGN.NET Enterprises</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <nav class="shadow navbar navbar-expand-lg navbar-dark bg-primary">
+        <a class="navbar-brand" href="index_ngn.php"><img src="pics\ngnlogoo.png" width="38" height="38">NGN.NET Enterprises</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
-      
-        <div class="collapse navbar-collapse nav" id="navbarSupportedContent">
-          <ul class="navbar-nav mr-auto navcenter">
+        <div class="collapse navbar-collapse" id="navbarText">
+          <ul class="navbar-nav mr-auto ml-auto">
             <li class="nav-item">
               <a class="nav-link" href="aboutus.php">About Us</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="products.php">Products and Services</a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link active" href="contactus.php">Contact Us</a>
+            <li class="nav-item active">
+              <a class="nav-link" href="contactus.php">Contact Us</a>
             </li>
           </ul>
-
           <span class="text-light">
             <?php  if (isset($_SESSION['user'])) { ?>
               <?php if ($_SESSION['user']['user_type'] != 'admin') { ?>
                 Signed in as:
                 <span class="text-green"><?php echo $_SESSION['user']['username']; ?></span>
                 <div class="btn-group">
-                <button class="btn btn-secondary btn-light dropdown-toggle dropdown-toggle-split" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  <button type="button" class="btn btn-light dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <span class="sr-only">Toggle Dropdown</span>
                   </button>
-                  <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
+                  <div class="dropdown-menu dropdown-menu-right">
                     <a class="dropdown-item" href="inquiries.php">My Inquiries</a>
                     <a class="dropdown-item" href="account.php">Edit account</a>
                     <a class="dropdown-item" href="index_ngn.php?logout='1'" style="color: red;">Logout</a>
@@ -64,7 +56,7 @@
                   </button>
                   <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
                     <a class="dropdown-item" href="account.php">Edit account</a>
-                    <a class="dropdown-item text-danger" href="index_ngn.php?logout='1'">Logout</a>
+                    <a class="dropdown-item" href="index_ngn.php?logout='1'" style="color: red;">Logout</a>
                   </div>
                 </div>
               <?php } ?>
@@ -79,23 +71,41 @@
         </div>
       </nav>
 
-      <div id="map" style="width: 1360px; height: 384px;">
+      <div id="map" class="shadow-lg" style="width: 100%; height: 60%;">
         <div id="popup" class="ol-popup">
             <a href="#" id="popup-closer" class="ol-popup-closer"></a>
             <div id="popup-content"></div>
         </div>
       </div>
 
-      <div class="text-center" style="padding-left: 10%; padding-right: 10%;">
-        <div class="jumbotron jumbotron-fluid row mb-0">
-          <div class="col-6" style="border-right: 2px solid black;">
-            <h1 class="display-5">Address</h1>
-            <p class="lead">Door 4 Pavilion 7, Panganiban Drive, Naga City</p>
-          </div>
-          <div class="col-6">
-            <h1 class="display-5">Contact No</h1>
-            <p class="lead">(054) 473-7373 <br> 0915-687-7181 / 0918-428-7063</p>
-          </div>
+      <div class="text-center py-dot10 row">
+        <div class="col-12 col-sm-12 col-md-6 col-lg-4 px-4 py-5" style="background-color: rgba(233, 236, 239, .75);">
+          <h1 class="display-5">Contact Us</h1>
+          <hr>
+          <p class="lead">(054) 473-7373 <br> 0915-687-7181 <br> 0918-428-7063</p>
+          <p class="lead">Door 4 Pavilion 7, Panganiban Drive, Naga City</p>
+        </div>
+        <div class="col-12 col-sm-12 col-md-6 col-lg-4 px-4 py-5" style="background-color: rgba(233, 236, 239, .50);">
+          <h1 class="display-5">Visit Us</h1>
+          <hr>
+          <a href="https://www.facebook.com/ngn.net.ph/" target="_blank"><img src="pics\facebook.svg" width="50" height="50"></a>
+        </div>
+        <div class="col-12 col-sm-12 col-md-6 col-lg-4 px-4 py-5 mx-auto" style="background-color: rgba(233, 236, 239, .25);">
+          <h1 class="display-5">Tell Us</h1>
+          <hr>
+          <form>
+            <div class="row">
+              <div class="col pr-1">
+                <input id="field1" class="mb-1 form-control" type="text" required name="Name" placeholder="Name *" value="" />
+                <input id="field2" class="mb-1 form-control" type="text" required name="Email" placeholder="Email *" value="" />
+                <input id="field3" class="mb-1 form-control" type="text" name="Subject" placeholder="Subject" value="" />
+              </div>
+              <div class="col pl-1 d-flex align-items-stretch">
+              <textarea id="field4" class="mb-1 form-control" style="resize: none;" name="Message" placeholder="Message" value=""></textarea>
+              </div>
+            </div>
+            <button type="button" class="btn-sm btn-primary">Send</button>
+          </form>
         </div>
       </div>
 

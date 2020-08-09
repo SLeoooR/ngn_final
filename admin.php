@@ -1,10 +1,3 @@
-<!--
-  Honor Code:
-    This is my own work and I have not received any unauthorized help in completing this. 
-    I have not copied from my classmate, friend, nor any unauthorized resource. I am well 
-    aware of the policies stipulated in the handbook regarding academic dishonesty. If proven 
-    guilty, I won't be credited any points for this endeavor.
--->
 <?php 
   include('functions.php');
 
@@ -37,44 +30,66 @@
             ?>
         </div>
       <?php } ?>
-      <div id="navextend">
-        <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-          <a class="navbar-brand" href="admin.php"><img src="pics\ngnlogoo.png" width="50" height="50">NGN.NET Enterprises</a>
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-        
-          <div class="collapse navbar-collapse nav" id="navbarSupportedContent">
-            <ul class="navbar-nav mr-auto" id="navcenter"></ul>
-
-            <span class="text-light">
-              <?php  if (isset($_SESSION['user'])) { ?>
+      <nav class="shadow navbar navbar-expand-lg navbar-dark bg-primary">
+        <a class="navbar-brand" href="index_ngn.php"><img src="pics\ngnlogoo.png" width="38" height="38">NGN.NET Enterprises</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarText">
+          <ul class="navbar-nav mr-auto ml-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="aboutus.php">About Us</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="products.php">Products and Services</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="contactus.php">Contact Us</a>
+            </li>
+          </ul>
+          <span class="text-light">
+            <?php  if (isset($_SESSION['user'])) { ?>
+              <?php if ($_SESSION['user']['user_type'] != 'admin') { ?>
                 Signed in as:
-                <span class="text-green"><?php echo $_SESSION['user']['username']; ?>
+                <span class="text-green"><?php echo $_SESSION['user']['username']; ?></span>
                 <div class="btn-group">
-                  <button class="btn btn-secondary btn-light dropdown-toggle dropdown-toggle-split" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  <button type="button" class="btn btn-light dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <span class="sr-only">Toggle Dropdown</span>
                   </button>
-                  <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
+                  <div class="dropdown-menu dropdown-menu-right">
+                    <a class="dropdown-item" href="inquiries.php">My Inquiries</a>
+                    <a class="dropdown-item" href="account.php">Edit account</a>
                     <a class="dropdown-item" href="index_ngn.php?logout='1'" style="color: red;">Logout</a>
                   </div>
                 </div>
               <?php } else { ?>
-              <a href="login.php">
-                <button class="btn btn-light btn-outline-primary my-2 my-sm-0">
-                  Login
-                </button>
-              </a>
+                Signed in as:
+                <span class="text-green"><?php echo $_SESSION['user']['username']; ?></span>
+                <div class="btn-group">
+                  <button class="btn btn-secondary btn-light dropdown-toggle dropdown-toggle-split" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  </button>
+                  <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
+                    <a class="dropdown-item" href="account.php">Edit account</a>
+                    <a class="dropdown-item" href="index_ngn.php?logout='1'" style="color: red;">Logout</a>
+                  </div>
+                </div>
               <?php } ?>
-            </span>
-          </div>
-        </nav>
-      </div>
+            <?php } else { ?>
+            <a href="login.php">
+              <button class="btn btn-light btn-outline-primary my-2 my-sm-0">
+                Login
+              </button>
+            </a>
+            <?php } ?>
+          </span>
+        </div>
+      </nav>
 
       <div class="jumbotron jumbotron-fluid text-center">
         <h1 class="display-4">Admin Page</h1>
       </div>
 
-      <div id="body_below">
+      <div class="py-dot10">
         <h2 class="text-center">Users Table</h2>
         <table class="table text-center">
             <thead>

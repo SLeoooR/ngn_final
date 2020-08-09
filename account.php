@@ -1,14 +1,7 @@
-<!--
-  Honor Code:
-    This is my own work and I have not received any unauthorized help in completing this. 
-    I have not copied from my classmate, friend, nor any unauthorized resource. I am well 
-    aware of the policies stipulated in the handbook regarding academic dishonesty. If proven 
-    guilty, I won't be credited any points for this endeavor.
--->
 <?php 
   include('functions.php'); 
 
-  if (!isLoggedIn() && isset($_GET['deleted-account'])) {
+  if (!isLoggedIn() || isset($_GET['deleted-account'])) {
     $_SESSION['error_logged_in'] = "You must log in first";
     header('location: login.php');
   }
@@ -57,14 +50,13 @@
         }
         unset($_SESSION['error_password']);
       } ?>
-      <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-        <a class="navbar-brand" href="index_ngn.php"><img src="pics\ngnlogoo.png" width="50" height="50">NGN.NET Enterprises</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <nav class="shadow navbar navbar-expand-lg navbar-dark bg-primary">
+        <a class="navbar-brand" href="index_ngn.php"><img src="pics\ngnlogoo.png" width="38" height="38">NGN.NET Enterprises</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
-      
-        <div class="collapse navbar-collapse nav" id="navbarSupportedContent">
-          <ul class="navbar-nav mr-auto navcenter">
+        <div class="collapse navbar-collapse" id="navbarText">
+          <ul class="navbar-nav mr-auto ml-auto">
             <li class="nav-item">
               <a class="nav-link" href="aboutus.php">About Us</a>
             </li>
@@ -75,16 +67,16 @@
               <a class="nav-link" href="contactus.php">Contact Us</a>
             </li>
           </ul>
-
           <span class="text-light">
             <?php  if (isset($_SESSION['user'])) { ?>
               <?php if ($_SESSION['user']['user_type'] != 'admin') { ?>
                 Signed in as:
                 <span class="text-green"><?php echo $_SESSION['user']['username']; ?></span>
                 <div class="btn-group">
-                  <button class="btn btn-secondary btn-light dropdown-toggle dropdown-toggle-split" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  <button type="button" class="btn btn-light dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <span class="sr-only">Toggle Dropdown</span>
                   </button>
-                  <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
+                  <div class="dropdown-menu dropdown-menu-right">
                     <a class="dropdown-item" href="inquiries.php">My Inquiries</a>
                     <a class="dropdown-item" href="account.php">Edit account</a>
                     <a class="dropdown-item" href="index_ngn.php?logout='1'" style="color: red;">Logout</a>
@@ -113,12 +105,12 @@
         </div>
       </nav>
 
-      <div style="min-height: 90%;">
+      <div class="fill-screen">
         <div class="jumbotron jumbotron-fluid text-center">
           <h1 class="display-4">My Account</h1>
         </div>
 
-        <div class="body-below-account">
+        <div class="py-dot10">
           <table class="table text-center">
               <thead>
                 <tr>
@@ -133,7 +125,31 @@
                 <td width="33.33%">
                   <form method="POST">
                     <button class="btn btn-info" name="edit_button" id="edit_button">Edit</button>
-                    <button class="btn btn-danger" name="delete_button" onclick="return confirm('Are you sure?')">Delete</button>
+                    <!-- Button trigger modal -->
+                    <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#delete_modal">
+                      Delete
+                    </button>
+
+                    <!-- Modal -->
+                    <div class="modal fade" id="delete_modal" tabindex="-1" role="dialog" aria-hidden="true">
+                      <div class="modal-dialog modal-dialog-centered" role="document">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <h5 class="modal-title">Delete Account</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                              <span aria-hidden="true">&times;</span>
+                            </button>
+                          </div>
+                          <div class="modal-body">
+                            Are you sure you want to delete your account?
+                          </div>
+                          <div class="modal-footer">
+                            <button type="submit" class="btn btn-primary" name="delete_button">Yes</button>
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
                     <button class="btn btn-warning" name="edit_pw_button" id="edit_pw_button">Reset Password</button>
                   </form>
                 </td>

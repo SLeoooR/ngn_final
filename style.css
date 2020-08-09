@@ -1,39 +1,19 @@
-  body {
-    font-family: 'Helvetica';
+  html, body {
+    font-family: 'Rubik', sans-serif;
   }
-  .navcenter {
-    margin: 0 auto;
-  }
-  .navbar{
+  .navbar, .py-dot10{
     padding-left: 10%;
     padding-right: 10%;
   }
-  @media(max-width: 600px){
-    .navcenter {
-      margin: 0;
-    }
+  .nav-login {
+    margin-top: -10px;
+    margin-bottom: -10px;
   }
-  .body-below {
-    margin: 0 10%;
+  .fill-screen{
     min-height: 90%;
-  }
-  .responsive {
-    width: 100%;
-    height: auto;
-  }
-  .card {
-    margin: 0 auto;
-    float: none;
-    margin-bottom: 40px;
-  }
-  .container-fluid {
-    padding: 40px auto;
   }
   .text-green{
     color: #84C971;
-  }
-  .body-below-account {
-    margin: 5% 10% 14% 10%;
   }
   #update_form {
     display: none;
@@ -41,14 +21,26 @@
   #update_form_pw {
     display: none;
   }
-  .text-green{
-    color: #84C971;
-  }
   .carousel-inner .carousel-item {
     transition: -webkit-transform 2s ease;
     transition: transform 2s ease;
     transition: transform 2s ease, -webkit-transform 2s ease;
   }
+  @media (min-width: 768px) {
+    .carousel-multi-item-2 .col-md-3 {
+      float: left;
+      width: 25%;
+      max-width: 100%; 
+    } 
+  }
+  .carousel-multi-item-2 .card img {
+    border-radius: 2px; 
+  }
+  .gallery {
+    background-color: #E9ECEF;
+  }
+
+  /* start openstreetmap */
   .ol-popup {
     position: absolute;
     background-color: white;
@@ -90,6 +82,9 @@
   .ol-popup-closer:after {
     content: "✖";
   }
+  /* end openstreetmap */
+
+  /* start bootstrap signin/register */
   .form-signin {
     width: 100%;
     max-width: 330px;
@@ -118,4 +113,74 @@
     margin-bottom: 10px;
     border-top-left-radius: 0;
     border-top-right-radius: 0;
+  }
+  /* end bootstrap signin/register */
+
+  /* custom grid for 5 columns */
+  .col-xs-5ths,
+  .col-sm-5ths,
+  .col-md-5ths,
+  .col-lg-5ths {
+      position: relative;
+      min-height: 1px;
+      padding-right: 15px;
+      padding-left: 15px;
+  }
+
+  /* Very small devices (phones, 0px and up) */
+  @media (min-width: 0px) {
+    .jumbotron h1 {
+        font-size: 2em;
+    }
+    h1 {
+      font-size: 2em;
+    }
+    .col-xs-5ths {
+      width: 50%;
+      float: left;
+    }
+  }
+  /* Small devices (tablets, 768px and up) */
+  @media (min-width: 768px) {
+    .jumbotron h1 {
+        font-size: 2.5em;
+    }
+    .display-5 {
+      font-size: 2.5em;
+    }
+    .col-sm-5ths {
+      width: 50%;
+      float: left;
+    }
+  }
+
+  /* Medium devices (desktops, 992px and up) */
+  @media (min-width: 992px) {
+    .jumbotron h1 {
+        font-size: 3em;
+    }
+    .display-5 {
+      font-size: 3em;
+    }
+    .navcenter {
+      margin: 0;
+    }
+    .col-md-5ths {
+      width: 33.33%;
+      float: left;
+    }
+  }
+
+  /* Large devices (large desktops, 1200px and up) */
+  @media (min-width: 1200px) {
+    .jumbotron h1 {
+        font-size: 3em;
+    }
+    .display-5 {
+      font-size: 3em;
+    }
+    .col-lg-5ths {
+      width: 20%;
+      float: left;
+    }
   }

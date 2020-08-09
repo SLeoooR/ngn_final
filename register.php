@@ -1,10 +1,3 @@
-<!--
-  Honor Code:
-    This is my own work and I have not received any unauthorized help in completing this. 
-    I have not copied from my classmate, friend, nor any unauthorized resource. I am well 
-    aware of the policies stipulated in the handbook regarding academic dishonesty. If proven 
-    guilty, I won't be credited any points for this endeavor.
--->
 <?php 
   include('functions.php'); 
 ?>
@@ -25,7 +18,7 @@
         <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
     </head>
-    <body class="text-center vsc-initialized">
+    <body>
       <?php if (isset($_GET['email-validity'])) {
         if (isset($_SESSION['email_validity'])) {
           echo "<div style='margin-bottom: 0;' class='alert alert-danger text-center'>";
@@ -34,14 +27,13 @@
         }
         unset($_SESSION['email_validity']);
       } ?>
-      <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-        <a class="navbar-brand" href="index_ngn.php"><img src="pics\ngnlogoo.png" width="50" height="50">NGN.NET Enterprises</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <nav class="shadow navbar navbar-expand-lg navbar-dark bg-primary">
+        <a class="navbar-brand" href="index_ngn.php"><img src="pics\ngnlogoo.png" width="38" height="38">NGN.NET Enterprises</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
-      
-        <div class="collapse navbar-collapse nav" id="navbarSupportedContent">
-          <ul class="navbar-nav mr-auto navcenter">
+        <div class="collapse navbar-collapse" id="navbarText">
+          <ul class="navbar-nav mr-auto ml-auto">
             <li class="nav-item">
               <a class="nav-link" href="aboutus.php">About Us</a>
             </li>
@@ -58,6 +50,7 @@
       <form method="post" class="body-below text-center mt-3 form-signin" action="<?php echo $_SERVER['PHP_SELF']; ?>" oninput='inputPassword2.setCustomValidity(inputPassword2.value != inputPassword1.value ? "Passwords do not match." : "")'>
         <img class="mb-4" src="pics\ngnlogoo.png" alt="" width="72" height="72">
         <h1 class="h3 mb-3 font-weight-normal">Register</h1>
+        <hr>
         <label for="inputEmail" class="sr-only">Username</label>
         <input type="text" name="inputUsername" class="form-control mb-4" placeholder="Username" required>
         <label for="inputEmail" class="sr-only">Email address</label>

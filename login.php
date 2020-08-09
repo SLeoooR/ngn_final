@@ -1,10 +1,3 @@
-<!--
-  Honor Code:
-    This is my own work and I have not received any unauthorized help in completing this. 
-    I have not copied from my classmate, friend, nor any unauthorized resource. I am well 
-    aware of the policies stipulated in the handbook regarding academic dishonesty. If proven 
-    guilty, I won't be credited any points for this endeavor.
--->
 <?php 
   include('functions.php'); 
 ?>
@@ -26,7 +19,7 @@
         <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
     </head>
-    <body class="vsc-initialized">
+    <body>
       <?php if (isset($_SESSION['error_logged_in'])) { ?>
         <div style='margin-bottom: 0;' class='alert alert-danger text-center'>
             <?php 
@@ -42,14 +35,13 @@
             ?>
         </div>
       <?php } ?>
-      <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-        <a class="navbar-brand" href="index_ngn.php"><img src="pics\ngnlogoo.png" width="50" height="50">NGN.NET Enterprises</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <nav class="shadow navbar navbar-expand-lg navbar-dark bg-primary">
+        <a class="navbar-brand" href="index_ngn.php"><img src="pics\ngnlogoo.png" width="38" height="38">NGN.NET Enterprises</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
-      
-        <div class="collapse navbar-collapse nav" id="navbarSupportedContent">
-          <ul class="navbar-nav mr-auto navcenter">
+        <div class="collapse navbar-collapse" id="navbarText">
+          <ul class="navbar-nav mr-auto ml-auto">
             <li class="nav-item">
               <a class="nav-link" href="aboutus.php">About Us</a>
             </li>
@@ -63,17 +55,20 @@
         </div>
       </nav>
       
-      <form class="body-below text-center pt-5 form-signin" method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
-        <img class="mb-4" src="pics\ngnlogoo.png" alt="" width="72" height="72">
-        <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
-        <label for="inputEmail" class="sr-only">Username</label>
-        <input type="username" width="5" name="inputUsername" class="form-control mb-4" placeholder="Username" required autofocus>
-        <label for="inputPassword" class="sr-only">Password</label>
-        <input type="password" width="5" name="inputPassword" class="form-control mb-4" placeholder="Password" required>
-        <button class="btn btn-lg btn-primary btn-block mb-4" type="submit" name="signin_button">Sign in</button>
-        <p>Not a member? <a href="register.php" class="text-primary">Sign Up</p></a>
-      </form>
-      
+      <div class="fill-screen">
+        <form class="body-below text-center pt-5 form-signin" method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
+          <img class="mb-4" src="pics\ngnlogoo.png" alt="" width="72" height="72">
+          <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
+          <hr>
+          <label for="inputEmail" class="sr-only">Username</label>
+          <input type="username" width="5" name="inputUsername" class="form-control mb-4" placeholder="Username" required autofocus>
+          <label for="inputPassword" class="sr-only">Password</label>
+          <input type="password" width="5" name="inputPassword" class="form-control mb-4" placeholder="Password" required>
+          <button class="btn btn-lg btn-primary btn-block mb-4" type="submit" name="signin_button">Sign in</button>
+          <p>Not a member? <a href="register.php" class="text-primary">Sign Up</p></a>
+        </form>
+      </div>
+
       <footer class="text-light">
         <div class="footer-copyright text-center py-2 bg-primary">Copyright © Scott Leo C. Reganit</div>
       </footer>
